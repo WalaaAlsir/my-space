@@ -221,4 +221,20 @@ display: block;
 .space-container:has(input[type="checkbox"]:checked) .main-content{
     display: block !important;
 }
+body{
+    font-size:18px;
+    line-height:1.6;
+}
+p, li{
+    font-size:1.1rem;
+}
+@media (max-width:768px){
+    body{
+        font-size:16px;
+        padding:20px 10px;
+    }
+    h1 { font-size:1.8rem;}
+    h2 { font-size:1.5rem;}
+    h3 { font-size:1.3rem;}
+}
 
