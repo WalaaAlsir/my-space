@@ -12,9 +12,7 @@ body{
     radial-gradient(circle at 50% 15% , #1d1841 0% , transparent 45%),
     radial-gradient(circle at 50% 85% , #0a2540 0% , transparent 50%);
     color:#ffffff;
-    font-family: 'segoe UI',tahoma,geneva,verdana,sans-serif;
-    font-size:18px;
-    min-height: 100vh;
+    font-family: 'segoe UI',tahoma,geneva,verdana,sans-serif;    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -228,16 +226,16 @@ body{
 p, li{
     font-size:1.1rem !important;
 }
-@media (max-width:768px){
+
+@media screen and (max-width: 768px) {
     body{
         font-size:16px !important;
         padding:20px 10px !important;
     }
-    h1 { font-size:1.8rem !important;}
-    h2 { font-size:1.5rem !important;}
-    h3 { font-size:1.3rem !important;}
-}
-@media screen and (max-width: 768px) {
+    p, li, span{
+        font-size:16px !important;
+        line-height:1.6 !important;
+    }
     .layout-wrapper {
         flex-direction: column;
         align-items: center;
@@ -256,3 +254,5 @@ p, li{
         padding: 15px;
     }
 }
+
+
