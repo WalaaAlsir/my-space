@@ -1,0 +1,223 @@
+html{
+    scroll-behavior: smooth;
+}
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #030308;
+    background-image: 
+    radial-gradient(circle at 50% 15% , #1d1841 0% , transparent 45%),
+    radial-gradient(circle at 50% 85% , #0a2540 0% , transparent 50%);
+    color:#ffffff;
+    font-family: 'segoe UI',tahoma,geneva,verdana,sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    overflow-x: hidden;
+}
+.space-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    gap: 25px;
+}
+/* تصميم الفقاعات الضوئية*/
+.bubble{
+    background: rgba(255 ,255, 255, 0.03);
+    border: 1.5px solid rgba(0 ,240, 255, 0.035);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0 ,240, 255, 0.15), inset 0 0 15px rgba(200 ,0, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    animation: bubbleAppear 0.8s ease-out forwards;
+}
+.welcom-bubble{
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 60px;
+    animation-delay: 0.5s;
+}
+.welcome-bubble h1{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(0 ,240, 255, 0.7);
+}
+.question-bubble{
+    width: 85%;
+    padding: 18px 20px;
+    border-radius: 50px;
+    animation-delay: 1.8s;
+}
+.question-bubble p {
+    font-size: 1.1rem;
+    color: #b0edf8;
+}
+/* الفقاعات الصغرى جنب بعضها بدون صندوق*/
+.layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top:15px;
+}
+.bubbles-side{
+    display: flex;
+    flex-direction:row-reverse !important;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.small-bubble{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    animation-delay: 2.8s;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.bubbles-side a,
+.bubbles-side a :visited,
+.bubbles-side a:active{
+    color:white;
+    text-decoration: none;
+}
+
+.small-bubble:hover{
+    transform: translateX(-5px) scale(1.08);
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.5);
+}
+@keyframes bubbleAppear{
+    form{
+        opacity: 0;
+        transform: translateY(25px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/*التحكم بالتفاعل في إظهار المحتوى */
+.bubble-check{
+    display: none;
+}
+/*تمييز الفقاعة المحددة حاليا باللون المتوهج*/
+.section-block{
+    display: none;
+
+}
+/* اظهار الاقسام عند النقر عليها بشكل تراكمي */
+#sec-about:target ~ .main-content #sec-about,
+#sec-hobbies:target ~ .main-content #sec-hobbies,
+#sec-gallery:target ~ .main-content #sec-gallery,
+#sec-contact:target ~ .main-content #sec-contact{
+    display: block !important;
+}
+/*تنسيق الفقاعىة المحددة*/
+#sec-about:target ~ .layout-wrapper a[herf="#sec-about"],
+#sec-hobbies:target ~ .layout-wrapper a[herf="#sec-hobbies"],
+#sec-gallery:target ~ .layout-wrapper a[herf="#sec-gallery"],
+#sec-contact:target ~ .layout-wrapper a[herf="#sec-contact"] {
+    border-color: #00ffcc;
+    background: rgba(0, 255, 204, 0.25);
+    box-shadow: 0 0 30px rgba( 0, 255, 204, 0.7);
+}
+
+
+/* إطار محتوى الصفحة الاصلية */
+.main-content{
+    flex:1;
+    background: rgba(10 ,12, 28, 0.85);
+    border: 1.5px solid rgba(0 ,240, 255, 0.35);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    animation:fadeIn o.8s ease-in-out forwards;
+    line-height: 1.8;  
+display: block;
+}
+/*أخفاء جميع الاقسام افتراضيا*/
+.section-block{
+    display: none;
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.bubble-check ~.layout-wrapper .main-content{
+    display: block;
+}
+ 
+ @keyframes fadeIn{
+    form{ opacity: 0; transform: translateY(15px);}
+    to{opacity: 1; transform: translateY(0);}
+ }
+ /*تنسيقات النصوص والعناصر الاصلية داخل الدارك مود */
+ .main-content h1 ,.main-content h2 , .main-content h3 , .main-content h4{
+    color: #00f0ff;
+    margin-top: 15px;
+    margin-bottom: 10px;
+ }
+ .main-content p, .main-content li{
+    color: #d1d5db;
+ }
+ .main-content ul , .main-content ol{
+    padding-right: 25px;
+    margin-bottom: 15px;
+ }
+ .main-content mark{
+    background-color: rgba(0 ,255, 204, 0.3);
+    color:#ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+ }
+ .main-content a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: bold;
+ }
+ .main-content a:hover{
+    text-decoration: underline;
+ }
+ .main-content img{
+    border-radius: 10px;
+    border: 1px solid rgba(0,240 ,255, 0.3);
+    margin: 5px;
+    transition: transform 0.3s ease;
+ }
+ .main-content img :hover{
+    transform:scale(1.04);
+ }
+.section-block{
+    display: none;
+}
+ /*اظهار القسم الخاص بكل فقاعة عند تحديد الcheckbox وابقاؤه ظاهر */
+.space-container:has(#check-about:checked) .sec-about,
+.space-container:has(#check-hobbies:checked) .sec-hobbies,
+.space-container:has(#check-gallery:checked) .sec-gallery,
+.space-container:has(#check-contact:checked) .sec-contact{
+
+    display: block !important;
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+/*اظهار اطار المحتوى الرئيسي عند تفعيل اي فقاعة */
+.space-container:has(input[type="checkbox"]:checked) .main-content{
+    display: block !important;
+}
+
